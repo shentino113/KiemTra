@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+</head>
+<body style="background-color: white">
+
+
+<h1>abc</h1>
+<div>
+	<h1>div-1</h1>
+	<h1>div-2</h1>
+</div>
+<h1>xyz</h1>
+<button type="button" id="btnChangeColor">Doi mau</button>
+<br>
+<a id="url" href="http://google.com/">Google</a>
+<button id="btnChangeLink">Doi link + tieu de</button>
+<form id="formMain">
+	<div class="form-horizontal">
+		<div class="form-group">
+			<label>Username</label>
+			<input type="text" id="Username" name="Username" ><label id="errorUsername" style="color: red;display: none;"> username is required</label>
+			</div>
+			<div>
+			<label>password</label>
+			<input type="password" name="Password" id="Password" minlength="6" required=""><label id="errorPassword" style="color: red;display: none;"> password must have minium 6 characters</label>
+			</div>
+			<div>
+			<label>Emaill Address</label>
+
+			<input type="email" id="Email" name="Emaill" ><label id="errorEmail" style="color: red;display: none;"> must be email valid</label>
+			</div>
+			<a id="submit" class="btn btn-warning" name="">submit</a>
+		
+	</div>
+</form>
+
+<table class="table" >
+   
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+   
+  
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+   
+  </table>
+  <button class="btn btn-success" onclick="addRow()">them hang</button>
+
+</body>
+</html>
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+
+        
+        
+
+        <script type="text/javascript">
+
+        $('#submit').click(function(){
+            var flag = 0;
+            debugger
+            if($('#Username').val() == '')
+            {
+                flag+=1;
+                    $('#errorUsername').show()
+            }
+            else{
+
+                $('#errorUsername').hide()
+            }
+            if($('#Password').val().length < 6)
+            {
+                flag+=1;
+                    $('#errorPassword').show()
+            }
+            else{
+                $('#errorPassword').hide()
+            }
+            if($('#Email').val().indexOf('@') <  0 && $('#Email').val().indexOf('.') <  0)
+            {
+                flag+=1;
+                    $('#errorEmail').show()
+            }
+            else{
+                $('#errorEmail').hide()
+            }
+            if(flag==0)
+            {
+                $('#formMain').submit()
+            }
+            
+
+        })
+
+        $('#btnChangeColor').click(function(){
+            $('div h1').css({
+                'background-color': 'red',
+
+            });
+        })
+
+        $('#btnChangeLink').click(function(){
+            $('#url').attr({
+                'href': 'http://www.hutech.edu.vn/',
+            });
+            $('title').text('truong dh cong nghe Tp.hcm')
+        })
+        	
+
+        	
+
+        	function addRow() {
+debugger
+        		$('.table').append('<tr><td>'+$('#Username').val()+'<td><td>'+$('#Password').val()+'<td></tr>')
+        	}
+        </script>
